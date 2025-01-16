@@ -47,7 +47,7 @@ echo "$(date) <br>" >> /var/www/html/index.html
 EOF'
 
 # Update Timestamp after 2 minutes using crontab
-(crontab -l 2>/dev/null; echo "*/2 * * * * /h$path/script.sh") | crontab -
+(crontab -l 2>/dev/null; echo "*/2 * * * * /$path/script.sh") | crontab -
 
 # test using curl
 curl $address
