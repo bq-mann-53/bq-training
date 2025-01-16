@@ -9,7 +9,7 @@ echo "$pass" | sudo -S apt install apache2
 #sudo launchctl load -w /System/Library/LaunchDaemons/org.apache.httpd.plist
 
 #customize the Apache service default webpage
-echo "$pass" | sudo -S bash -c 'cat <<EOF > /opt/homebrew/var/www/index.html    #Default location of file for port 8080
+cat '<<EOF > /var/www/html/index.html    
 <html><body>
 <h1>Welcome to the advanced Linux training module</h1>
 <p>Learning by doing is the key to mastery.</p>
@@ -41,9 +41,9 @@ sudo -4 ifconfig.me
 curl 54.90.166.9:80
 
 #Create new file name script.sh for Timestamp
-cat <<EOF > /Users/mac/script.sh
-echo "$(date) <br>" >> /opt/homebrew/var/www/index.html
-EOF
+cat '<<EOF > /Users/mac/script.sh
+echo "$(date) <br>" >> /var/www/html/index.html
+EOF'
 
 # Update Timestamp after 2 minutes using crontab
 (crontab -l 2>/dev/null; echo "*/2 * * * * /Users/mac/script.sh") | crontab -
